@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 -- main.lua - AETHERIUS Main Entry Point
 -- All UI logic is here, modules contain only functionality
  
@@ -549,3 +550,60 @@ print("✅ AETHERIUS Loaded Successfully!")
 print("🎯 Visuals: ESP, Skeleton, Tracers, ForceField Chams")
 print("⚡ Movement: Speed, Jump, Fly, Noclip, Infinite Jump")
 print("🔧 Press 'End' to toggle menu")
+=======
+print("AETHERIUS Loading...")
+
+local repo = "https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/"
+local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
+local ThemeManager = loadstring(game:HttpGet(repo .. "addons/ThemeManager.lua"))()
+local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
+
+local Window = Library:CreateWindow({
+    Title = "AETHERIUS | ESP + Movement",
+    Center = true,
+    AutoShow = true,
+})
+
+local Tabs = {
+    Visuals = Window:AddTab("Visuals"),
+    Movement = Window:AddTab("Movement"),
+    Settings = Window:AddTab("UI Settings"),
+}
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/visuals.lua"))()
+
+local MoveBox = Tabs.Movement:AddLeftGroupbox("Movement")
+
+MoveBox:AddSlider("WalkSpeedSlider", {
+    Text = "Walk Speed",
+    Default = 16,
+    Min = 16,
+    Max = 200,
+    Rounding = 0,
+    Callback = function(Value)
+        local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if hum then hum.WalkSpeed = Value end
+    end
+})
+
+MoveBox:AddToggle("FlyToggle", {
+    Text = "Enable Fly",
+    Default = false,
+    Callback = function(Value)
+        print("Fly:", Value)
+    end
+})
+
+MoveBox:AddSlider("FlySpeedSlider", {
+    Text = "Fly Speed",
+    Default = 50,
+    Min = 10,
+    Max = 200,
+    Rounding = 0,
+    Callback = function(Value)
+        print("Fly Speed:", Value)
+    end
+})
+
+print("AETHERIUS Loaded!")
+>>>>>>> 73656835583eed1caa01dae04d1aa7a65068b8fe
