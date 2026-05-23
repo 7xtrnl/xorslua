@@ -1,4 +1,4 @@
--- main.lua
+-- main.lua (With Movement Tab Controls)
 print("🌟 AETHERIUS Loading...")
 
 local repo = 'https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/'
@@ -18,8 +18,44 @@ local Tabs = {
     Settings = Window:AddTab('UI Settings'),
 }
 
--- Load modules
-local Visuals = loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/visuals.lua"))()
-local Movement = loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/movement.lua"))()
+-- Load ESP
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/visuals.lua"))()
 
-print("✅ AETHERIUS Loaded Successfully!")
+-- ================= MOVEMENT TAB =================
+local MoveBox = Tabs.Movement:AddLeftGroupbox('Movement')
+
+-- WalkSpeed
+MoveBox:AddSlider('WalkSpeedSlider', {
+    Text = 'Walk Speed',
+    Default = 16,
+    Min = 16,
+    Max = 200,
+    Rounding = 0,
+    Callback = function(Value)
+        local hum = game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+        if hum then hum.WalkSpeed = Value end
+    end
+})
+
+-- Fly Toggle
+MoveBox:AddToggle('FlyToggle', {
+    Text = 'Enable Fly',
+    Default = false,
+    Callback = function(Value)
+        -- Fly logic will be added here
+        print("Fly:", Value)
+    end
+})
+
+MoveBox:AddSlider('FlySpeedSlider', {
+    Text = 'Fly Speed',
+    Default = 50,
+    Min = 10,
+    Max = 200,
+    Rounding = 0,
+    Callback = function(Value)
+        print("Fly Speed:", Value)
+    end
+})
+
+print("✅ AETHERIUS Loaded with Movement Controls!")
