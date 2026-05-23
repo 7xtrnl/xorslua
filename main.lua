@@ -1,13 +1,12 @@
--- main.lua
+-- main.lua (Fixed for GitHub)
 print("🌟 AETHERIUS Loading...")
 
--- Load Config
-loadstring(readfile("AETHERIUS/config.lua"))()
+-- Load from GitHub (works in executor)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/config.lua"))()
 
--- Load Modules
-local Visuals   = loadstring(readfile("AETHERIUS/visuals.lua"))()
-local Movement  = loadstring(readfile("AETHERIUS/movement.lua"))()
-local Misc      = loadstring(readfile("AETHERIUS/misc.lua"))()
+local Visuals  = loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/visuals.lua"))()
+local Movement = loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/movement.lua"))()
+local Misc     = loadstring(game:HttpGet("https://raw.githubusercontent.com/7xtrnl/xorslua/master/misc.lua"))()
 
 print("✅ AETHERIUS Loaded Successfully!")
 print("🎮 Press END to open menu")
