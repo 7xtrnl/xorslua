@@ -1,6 +1,3 @@
-<<<<<<< HEAD
--- movement.lua - Movement Enhancement Module
--- No UI logic, only movement functionality
 
 local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
@@ -426,4 +423,4 @@ Movement.ToggleFly = function(enabled)
 end
 
 return Movement
->>>>>>> 73656835583eed1caa01dae04d1aa7a65068b8fe
+
