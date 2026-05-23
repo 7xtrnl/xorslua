@@ -1,7 +1,4 @@
-<<<<<<< HEAD
--- main.lua - AETHERIUS Main Entry Point
--- All UI logic is here, modules contain only functionality
- 
+
 print("🌟 AETHERIUS Loading...")
  
 -- ================= LOAD LIBRARY =================
@@ -606,4 +603,4 @@ MoveBox:AddSlider("FlySpeedSlider", {
 })
 
 print("AETHERIUS Loaded!")
->>>>>>> 73656835583eed1caa01dae04d1aa7a65068b8fe
+
